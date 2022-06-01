@@ -2,7 +2,7 @@ export const twoSum = (nums: number[], target: number): number[] => {
   let answer: number[] = [];
   for (const i in nums) {
     for (const j in nums) {
-      if (i !== j) {
+      if (i !== j && i < j) {
         if (nums[i] + nums[j] === target) {
           answer.push(parseInt(i, 10), parseInt(j, 10));
         }
