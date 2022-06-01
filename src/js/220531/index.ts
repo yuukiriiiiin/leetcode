@@ -9,6 +9,7 @@ export const twoSum = (nums: number[], target: number): number[] => {
       }
     }
   }
+  console.log(answer);
   return answer;
 };
 
