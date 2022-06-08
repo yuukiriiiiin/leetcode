@@ -11,11 +11,20 @@ export const isValid = (s: string) => {
 
   // 2番目のグループを、それぞれ対応するカッコに戻す
   const reversed = [...cur].reduceRight((p, c) => {
-    console.log(p, c);
-    return p;
-  });
+    if (c === ")") {
+      c = "(";
+    } else if (c === "]") {
+      c = "[";
+    } else if (c === "}") {
+      c = "{";
+    }
+    return p + c;
+  }, "");
 
-  // 1番目と2番目のグループが一致していなかったら、
+  // 1番目と2番目のグループが一致していたら、
+  if (prev === reversed) {
+    return true;
+  }
 
   // もし一致してなかったら、グループを2つずつに分割して、比べる作業
   // 繰り返す
