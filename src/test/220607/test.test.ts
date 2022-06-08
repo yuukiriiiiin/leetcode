@@ -26,4 +26,10 @@ describe("", () => {
   test("s = '({})' を受け取ったら true", () => {
     expect(isValid("({})")).toBe(true);
   });
+  test("s = '((' を受け取ったら false", () => {
+    expect(isValid("((")).toBe(false);
+  });
+  test("s = '){' を受け取ったら false", () => {
+    expect(isValid("){")).toBe(false);
+  });
 });

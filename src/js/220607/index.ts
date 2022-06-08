@@ -17,6 +17,8 @@ export const isValid = (s: string) => {
       c = "[";
     } else if (c === "}") {
       c = "{";
+    } else {
+      c = "not equal";
     }
     return p + c;
   }, "");
