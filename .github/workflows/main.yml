@@ -9,7 +9,7 @@ jobs:
   run-jest:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{toJSON(github)}}"
+      - run: echo "${{toJSON(github.event.number)}}"
 
       - uses: actions/checkout@v3
 
