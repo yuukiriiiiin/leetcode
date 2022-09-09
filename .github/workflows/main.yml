@@ -1,0 +1,37 @@
+# アクション名
+name: CI
+# タイミングを指定
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-jest:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{toJSON(github.event.number)}}"
+
+      - uses: actions/checkout@v3
+
+      - name: set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+
+      - name: install dependencies
+        run: npm i
+
+      - name: run jest
+        run: npm run test
+
+      - name: upload test coverage artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage
+
+      - name: show coverage in comments
+        uses: yuukiriiiiin/jest-reporter-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-command: "npx jest --coverage"

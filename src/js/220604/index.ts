@@ -7,6 +7,6 @@
 //   }
 // }
 
-export function mergeTwoLists(list1, list2) {
+export function mergeTwoLists(list1: number[], list2: number[]) {
   return [1, 1, 2, 3, 4, 4];
 }
