@@ -31,6 +31,6 @@ jobs:
           path: coverage
 
       - name: show coverage in comments
-        uses: yuukiriiiiin/jest-reporter-action
+        uses: yuukiriiiiin/jest-reporter-action@0.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
