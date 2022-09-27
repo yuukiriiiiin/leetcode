@@ -1,6 +1,8 @@
 export const plusOne = (digits: number[]): number[] => {
-  const hoge = digits.join('');
-  const foo = parseInt(hoge, 10);
-  const foo1 = foo + 1
-  return [...foo1.toString()].map(s => Number(s));
+  for (var i = digits.length - 1; i >= 0; i--) {
+    if (++digits[i] > 9) digits[i] = 0;
+    else return digits;
+  }
+  digits.unshift(1);
+  return digits;
 };
